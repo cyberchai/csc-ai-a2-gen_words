@@ -7,7 +7,7 @@ def gen(fsa):
     j = 0
     rand = 0
 
-    while not(current in fsa[2] and rand > 6):
+    while not(current in fsa[2] and rand > 8):
         if j >= len(fsa[1]):
             j = 0
         if fsa[1][j][0] == current:
@@ -19,15 +19,13 @@ def gen(fsa):
 
 
 def main():
-    states1 = ["A", "B", "C"]
-    transitions1 = [["A", "B", 0], ["B", "C", 0], ["C", "B", 1]]
-    final_states1 = ["B"]
-    fsa1 = [states1, transitions1, final_states1]
+    vowels = [["a", True], ["e", True], ["i", False], ["o", False], ["u", False], ["oo", False], ["ow", True], ["oe", True], ["ou", False], ["oa", False], ["ai", True], ["ie", True], ["ei", False]]
+    cons = [["b", True], ["c", False], ["d", True], ["f", True], ["g", True], ["h", False], ["j", False], ["k", False], ["l", True], ["m", True], ["n", True], ["p", True], ["q", False], ["r", True], ["s", False], ["t", True], ["v", True], ["w", True], ["x", True], ["y", True], ["z", True]]
+    states1 = [vowels, cons]
 
-    states2 = ["A", "B", "C", "D"]
-    transitions2 = [["A", "B", 0], ["B", "C", 1], ["C", "D", 1], ["D", "B", 0], ["B", "B", 0]]
-    final_states2 = ["B", "D"]
-    fsa2 = [states2, transitions2, final_states2]
+    transitions1 = [[vowels, cons, random.choise(cons)], [cons, vowels, vowels]]
+    final_states1 = ["B"]
+    words_fsa = [states1, transitions1, final_states1]
 
 
     print(gen(fsa2))
