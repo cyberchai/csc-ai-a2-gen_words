@@ -1,6 +1,11 @@
 import random
 
 """
+Chaira, Juniper, Glory
+A2 for CSC 290. October 2024.
+"""
+
+"""
 generate a singular word
 """
 def gen(fsa):
